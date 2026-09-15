@@ -34,40 +34,79 @@
 </head>
 <body>
   <h1>Privacy Policy</h1>
-  <p class="eff">Effective date: June 11, 2026</p>
+  <p class="eff">Effective date: September 14, 2026</p>
 
-  <p>This Privacy Policy describes how <strong>Vdose</strong> ("the App"), provided by <strong>the developer of Vdose</strong> ("we", "us", or "our"), handles your information. Vdose is a minimal vocabulary-learning app for iOS that uses flashcards and spaced repetition.</p>
+  <p>This Privacy Policy describes how <strong>Vdose</strong> ("the App"), provided by <strong>the developer of Vdose</strong> ("we", "us", or "our"), handles your information. Vdose is a vocabulary-learning app for iOS that uses flashcards, spaced repetition, and camera-based word discovery.</p>
 
   <h2>Overview</h2>
-  <p>Vdose is designed to be <strong>fully local and offline</strong>. The App does not collect, transmit, or share any personal data. Everything you create or configure stays on your device. We have no servers, no user accounts, and no way to access your information.</p>
+  <p>Vdose is designed to be <strong>local-first</strong>. Your words, review history, streaks, settings, and profile name live only on your device. There are no accounts, and Vdose never asks for permission to track you and does not collect your advertising identifier. (The app includes one open-source UI library for an animation; it receives no data.)</p>
+  <p>Three things use the internet: the opt-in <strong>"Look Deeper"</strong> camera analysis, the anonymous usage counts, and <strong>ad measurement</strong> through the Meta SDK — each described below. Your words, meanings, photos and review history are never part of any of them.</p>
 
   <h2>Information We Collect</h2>
-  <p><strong>None.</strong> We do not collect or transmit any personal data.</p>
-  <p>All data you create while using Vdose — including the words you add, their meanings, your review history, streaks, settings, and your profile name — exists only on your device. This information is never sent to us or to any third party.</p>
-  <p>The App contains no analytics, no tracking, no advertising identifiers, and no third-party software development kits (SDKs).</p>
+  <p><strong>None of your personal information, by default.</strong> We do not collect, transmit, or store personal data on our own systems. The only thing our systems ever retain is the anonymous usage counts described below — and those cannot be linked to you.</p>
+  <p>All data you create while using Vdose — the words you add, their meanings, your review history, streaks, settings, and your profile name — exists only on your device. It is never sent to us or sold or shared with anyone.</p>
+
+  <h2>The Camera &amp; Scan</h2>
+  <p>The live <strong>Scan</strong> feature recognizes objects <strong>entirely on your device</strong>, using a bundled on-device model. Camera frames from live scanning are processed in memory and are never stored or transmitted. The same is true of the on-device "deep scan" word suggestions shown when you capture a frame.</p>
+
+  <h2>Look Deeper (optional cloud analysis)</h2>
+  <p><strong>Look Deeper</strong> is an optional, off-by-default feature that finds additional vocabulary in a frame you deliberately capture. A small number of Look Deeper uses is included for everyone; a Vdose Essential subscription provides a daily allowance (both shown in Settings). It only ever runs after you have explicitly turned it on in a consent dialog (or in Settings), and you can turn it off at any time in Settings.</p>
+  <p>When Look Deeper analyzes a capture:</p>
+  <ul>
+    <li><strong>What is sent.</strong> The single captured photo is sent, over an encrypted connection, through our relay service (hosted on Cloudflare) to <strong>Anthropic</strong>, whose Claude model identifies vocabulary in the image. The relay exists only to hold the service key and enforce the daily limit — it <strong>never logs or stores your photo</strong>.</li>
+    <li><strong>What happens to the photo.</strong> The photo is analyzed and immediately discarded. We never store your photos, and we have no ability to retrieve them. Anthropic processes the image as a commercial API provider under its own terms; under those terms, API inputs are <strong>not used to train Anthropic's models</strong>. See Anthropic's privacy documentation: <a href="https://www.anthropic.com/legal/privacy">https://www.anthropic.com/legal/privacy</a></li>
+    <li><strong>People are filtered out on your device.</strong> Before anything is sent, an on-device face check runs on the captured frame. If a face is detected, the photo is <strong>not sent</strong> and only on-device results are shown. (This check can miss people who are not recognizably visible — for example, facing away — so please be considerate about what you capture.)</li>
+    <li><strong>An anonymous device identifier.</strong> To enforce the daily limit without accounts, the App generates a random identifier that is not derived from you, your Apple ID, or your device hardware. It is used only to count analyses per day and cannot be linked to your identity by us or anyone else.</li>
+    <li><strong>Daily limit.</strong> Look Deeper is limited to a fixed number of analyses per device per day (shown in Settings).</li>
+  </ul>
+  <p>Beyond Look Deeper, the anonymous usage counts described next, and the ad-measurement events described after them, no feature of Vdose sends anything off your device.</p>
+
+  <h2>Anonymous usage counts (optional)</h2>
+  <p>To decide what to improve, Vdose counts how often a few actions happen — for example "a word was saved" or "a review session was completed". These are <strong>counts, not content</strong>: they never include your words, meanings, photos, name, or anything that identifies you. They are sent in small batches to our own server (the same relay that powers Look Deeper) together with the app's random install identifier, and they are never shared with or sold to anyone. No third-party analytics service is involved.</p>
+  <p>You can turn this off at any time in <strong>Settings → Usage counts</strong> — the switch also deletes anything not yet sent. The app works identically either way.</p>
+
+  <h2>Ad measurement (Meta SDK)</h2>
+  <p>To learn whether the ads we run on Facebook and Instagram actually bring people to Vdose, the App includes Meta's software development kit. It reports three things to Meta: that the App was installed, that it was opened, and that a subscription or free trial was started through the App Store (the product and its price — never your payment details).</p>
+  <p>Each report carries technical device information such as the device model, operating system version, App version, IP address and an identifier generated by the SDK. It never includes your words, meanings, photos, review history, name or contact details. Vdose does not request Apple's tracking permission and does not collect the advertising identifier (IDFA), so these reports are handled by Meta under its non-tracking, aggregated measurement mode, and install attribution uses Apple's privacy-preserving SKAdNetwork.</p>
+  <p>Meta's handling of this information is governed by Meta's own policies:</p>
+  <ul>
+    <li>Meta Privacy Policy: <a href="https://www.facebook.com/privacy/policy/">https://www.facebook.com/privacy/policy/</a></li>
+    <li>Meta Business Tools terms: <a href="https://www.facebook.com/legal/terms/businesstools">https://www.facebook.com/legal/terms/businesstools</a></li>
+  </ul>
 
   <h2>How Data Is Stored</h2>
   <p>Your data is stored locally on your device using Apple's on-device storage frameworks (SwiftData and UserDefaults). It is not backed up to any servers operated by us.</p>
   <p>Because all data is local, <strong>deleting the App from your device permanently removes all of your Vdose data.</strong> We cannot recover it, because we never had a copy.</p>
 
+  <h2>Notifications</h2>
+  <p>Review reminders use Apple's local notification system. They are scheduled and delivered entirely on your device; no notification data is sent to us.</p>
+
   <h2>Subscriptions &amp; Payments</h2>
   <p>Vdose offers an optional auto-renewing subscription, <strong>Vdose Essential</strong>, sold through Apple's In-App Purchase system. All purchases and renewals are processed by <strong>Apple</strong>, not by us.</p>
-  <p>We do <strong>not</strong> see, receive, or store any payment details (such as your credit card number, billing address, or Apple ID). Apple's handling of your purchase information is governed by Apple's own privacy policy:</p>
+  <p>We do <strong>not</strong> see, receive, or store any payment details (such as your credit card number, billing address, or Apple ID). When a purchase or free trial completes, the Meta SDK reports the event (product and price only) for ad measurement, as described above. Apple's handling of your purchase information is governed by Apple's own privacy policy:</p>
   <ul>
     <li>Apple Privacy Policy: <a href="https://www.apple.com/legal/privacy/">https://www.apple.com/legal/privacy/</a></li>
   </ul>
 
   <h2>Children's Privacy</h2>
-  <p>Vdose does not knowingly collect any data from anyone, including children. Because the App collects no personal information at all, no such information about children is gathered or transmitted.</p>
+  <p>Vdose does not knowingly collect any personal data from anyone, including children. The optional Look Deeper feature requires an explicit opt-in and is subject to the safeguards described above.</p>
 
   <h2>Third Parties</h2>
-  <p>Vdose does not share data with third parties, because it does not collect or transmit data. The only third party involved is <strong>Apple</strong>, solely for processing optional In-App Purchases as described above.</p>
+  <p>The third parties involved in Vdose are:</p>
+  <ul>
+    <li><strong>Apple</strong>, for processing optional In-App Purchases.</li>
+    <li><strong>Cloudflare</strong>, which hosts the stateless relay used only by the optional Look Deeper feature.</li>
+    <li><strong>Anthropic</strong>, which analyzes photos you send via the optional Look Deeper feature, as described above.</li>
+    <li><strong>Meta Platforms</strong>, which receives install, launch and purchase events with technical device information for ad measurement, as described above.</li>
+  </ul>
+  <p>No data is shared with any other party.</p>
 
   <h2>Your Choices</h2>
   <p>You are always in control of your data:</p>
   <ul>
-    <li><strong>Reset in-app:</strong> Use the in-app reset option in Settings to clear your Vdose data.</li>
-    <li><strong>Delete the App:</strong> Removing Vdose from your device permanently deletes all associated local data.</li>
+    <li><strong>Look Deeper:</strong> off until you opt in; turn it off anytime in Settings.</li>
+    <li><strong>Reset in-app:</strong> use the in-app reset option in Settings to clear your Vdose data.</li>
+    <li><strong>Delete the App:</strong> removing Vdose from your device permanently deletes all associated local data.</li>
   </ul>
 
   <h2>Changes to This Policy</h2>
